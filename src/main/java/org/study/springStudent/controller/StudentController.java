@@ -1,40 +1,42 @@
 package org.study.springStudent.controller;
 
+import org.apache.logging.log4j.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.study.springStudent.model.Student;
-import org.study.springStudent.service.StudentServiceBD;
+import org.study.springStudent.service.StudentService;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/students")
 public class StudentController {
-    private final StudentServiceBD studentService;
+    private static final Logger logger = LogManager.getLogger(StudentController.class);
+    private final StudentService studentService;
 
     @Autowired
-    public StudentController(StudentServiceBD studentService) {
+    public StudentController(StudentService studentService) {
         this.studentService = studentService;
     }
 
-    @GetMapping("/findAllStudent")
+    @GetMapping("")
     public List<Student> findAllStudents(){
         return studentService.findAllStudent();
     }
-    @PostMapping("/updateStudent")
+    @PostMapping("/update_student")
     public Student updateStudent(@RequestBody Student student){
         return studentService.updateStudent(student);
     }
-    @GetMapping("/findByEmail/{emailS}")
-    public Student findByEmailStudent(@PathVariable(value = "emailS") String email){
+    @GetMapping("/find_by_email/{email}")
+    public Student findByEmailStudent(@PathVariable String email){
         return studentService.findStudentByEmails(email);
     }
-    @PostMapping("saveStudent")
+    @PostMapping("save_student")
     public Student saveStudent(@RequestBody Student student){
-        System.out.println(student);
+        logger.info(student);
         return studentService.saveStudent(student);
     }
-    @DeleteMapping("/deleteStudent/{email}")
+    @DeleteMapping("/delete_student/{email}")
     public void deleteStudent(@PathVariable (value = "email") String email){
         studentService.deleteStudent(email);
     }

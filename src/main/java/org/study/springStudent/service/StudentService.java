@@ -4,16 +4,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.study.springStudent.model.Student;
 import org.study.springStudent.repository.StudentRepository;
-import org.study.springStudent.service.interfaces.InterfaceStudentService;
+import org.study.springStudent.service.interfaces.IStudentService;
 
 import java.util.List;
 
 @Service
-public class StudentServiceBD implements InterfaceStudentService {
+public class StudentService implements IStudentService {
     private final StudentRepository studentRepository;
 
     @Autowired
-    public StudentServiceBD(StudentRepository studentRepository) {
+    public StudentService(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
     }
 

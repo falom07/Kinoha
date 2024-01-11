@@ -13,19 +13,12 @@ import java.util.Objects;
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id;
-    @Column(name = "first_name")
     private String first_name;
-    @Column(name = "last_name")
     private String last_name;
-    @Column(name = "day_of_birthday")
-
     private LocalDate date_of_birthday;
-    @Column(name = "email",unique = true)
+    @Column(unique = true)
     private String email;
-
     @Transient
     private int age;
-
 }
