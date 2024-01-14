@@ -13,6 +13,8 @@ import java.util.List;
 public class StudentController {
     private static final Logger logger = LogManager.getLogger(StudentController.class);
     private final StudentService studentService;
+    @Autowired
+    private Some_class_DELETE someClass;
 
     @Autowired
     public StudentController(StudentService studentService) {
@@ -21,6 +23,7 @@ public class StudentController {
 
     @GetMapping("")
     public List<Student> findAllStudents(){
+        System.out.println(someClass.getName());
         return studentService.findAllStudent();
     }
     @PostMapping("/update_student")

@@ -34,7 +34,7 @@ public class StudentService implements IStudentService {
 
     @Override
     public Student findStudentByEmails(String email) {
-        return studentRepository.findStudentByEmail(email);
+        return studentRepository.findStudentByEmail(email).orElse(new Student("none","nones"));
     }
 
     @Override
