@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+header{
+    height: 6vh;
+    background: rgba(0, 0, 0, 0.78);
+    border-bottom: silver 4px solid;
+    text-align: center;
+    font-size: xx-large;
+    
+}
+main{
+    background: rgb(162, 111, 28);
+    height: 200vh;
+    float: left;
+    width: 90vw;
+    font-size: 100px;
+}
+
+#aside2{
+    float: left;
+    background: brown;
+    height: 200vh;
+    width: 5vw;
+}
+footer {
+    float: left;
+    width: 100vw;
+    height: 100px;
+    background: black;
+}
+aside{
+    float: left;
+    background: brown;
+    height: 200vh;
+    width: 5vw;
+}

@@ -15,9 +15,7 @@ public class Student {
         this.first_name = first_name;
         this.last_name = last_name;
     }
-
-    public Student() {
-    }
+    public Student(){}
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,20 +1,23 @@
 package org.study.springStudent.controller;
 
 import org.apache.logging.log4j.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.study.springStudent.model.Student;
 import org.study.springStudent.service.StudentService;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/students")
+@Controller
+@RequestMapping(value = "/students")
 public class StudentController {
     private static final Logger logger = LogManager.getLogger(StudentController.class);
     private final StudentService studentService;
-    @Autowired
-    private Some_class_DELETE someClass;
 
     @Autowired
     public StudentController(StudentService studentService) {
@@ -22,8 +25,8 @@ public class StudentController {
     }
 
     @GetMapping("")
+    @ResponseBody
     public List<Student> findAllStudents(){
-        System.out.println(someClass.getName());
         return studentService.findAllStudent();
     }
     @PostMapping("/update_student")
@@ -44,7 +47,9 @@ public class StudentController {
         studentService.deleteStudent(email);
     }
 
-
-
-
+    @GetMapping("/takeHTML")
+    public String takeHtml(){
+        logger.info("in method");
+        return "html/index.html";
+    }
 }
